@@ -56,8 +56,7 @@ JAVA_HOME=<JDK 25> ./gradlew build publishToMavenLocal -Pbuild_tag=port.1
 
 ## Keeping it rebased
 
-Remotes: `origin` = KubeJS-Mods/Rhino, `wolfie` = wolfieboy09/Rhino (PR #78's head branch `main`). The port is committed on `26.3` on top of `wolfie/main` (local only, not pushed). To
-update:
+Remotes: `origin` = KubeJS-Mods/Rhino, `wolfie` = wolfieboy09/Rhino (PR #78's head branch `main`). The port is on `26.3` on top of `wolfie/main`, published at [zoom-packers/rhino](https://github.com/zoom-packers/rhino/tree/26.3) (remote `zp`). Jars are released on [zoom-packers/zp5-mods](https://github.com/zoom-packers/zp5-mods/releases/tag/kubejs-26.3-8.1.0-port.1). To update:
 
 ```
 git fetch origin wolfie
