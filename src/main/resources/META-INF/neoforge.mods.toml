@@ -1,6 +1,5 @@
-modLoader = "lowcodefml"
-loaderVersion = "[2,)"
-issueTrackerURL = "https://kubejs.com/support?source=rhino&mc=2101&loader=neoforge"
+# No modLoader/loaderVersion: FML 12 (NeoForge 26.3) deprecates "lowcodefml"; a mods.toml without them is a plain library mod
+issueTrackerURL = "https://kubejs.com/support?source=rhino&mc=2603&loader=neoforge"
 license = "MPL-2.0"
 
 [[mods]]

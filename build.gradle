@@ -11,9 +11,10 @@ plugins {
 ext.ENV = System.getenv()
 def isLocal = !ENV.containsKey("GITHUB_RUN_NUMBER")
 
-version = "${mod_version}-${isLocal ? "local.${Instant.now().epochSecond}" : "build.${ENV.GITHUB_RUN_NUMBER}"}"
+// -Pbuild_tag=<tag> pins the suffix for unofficial builds (e.g. the 26.3 port) so dependents can reference a stable version
+version = "${mod_version}-${project.findProperty('build_tag') ?: (isLocal ? "local.${Instant.now().epochSecond}" : "build.${ENV.GITHUB_RUN_NUMBER}")}"
 group = project.maven_group
-base.archivesBaseName = project.archives_base_name
+base.archivesName = project.archives_base_name
 
 println("Building version: ${version}")
 
@@ -69,6 +70,7 @@ dependencies {
 	// Unit Testing
 	testImplementation "org.junit.jupiter:junit-jupiter-api:$junit_version"
 	testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit_version"
+	testRuntimeOnly "org.junit.platform:junit-platform-launcher:1.8.2" // Gradle 9 no longer adds it
 
 	// why are these not being added automatically? is the mc classpath missing in test?
 	testRuntimeOnly "com.google.guava:guava:32.1.2-jre"
